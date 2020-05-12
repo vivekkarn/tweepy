@@ -50,7 +50,8 @@ This snippet will follow every follower of the authenticated user.
 .. code-block :: python
 
    for follower in tweepy.Cursor(api.followers).items():
-       follower.follow()
+       if not follower.following: 
+           follower.follow()
 
 Handling the rate limit using cursors
 =====================================
